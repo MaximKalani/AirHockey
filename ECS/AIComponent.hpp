@@ -7,6 +7,8 @@
 #include "../Vector2D.hpp"
 #include <cmath>
 
+//component contains all bot AI logic
+
 extern Manager manager;
 
 class AIComponent : public Component
@@ -51,7 +53,7 @@ public:
                 direction.y = -(transform->position.y - p->getComponent<TransformComponent>().position.y);
                 //if distance to puck is less then 100 pixels - dont move
                 if(sqrt(std::pow((transform->position.y-p->getComponent<TransformComponent>().position.y), 2) +
-                    std::pow((transform->position.x - p->getComponent<TransformComponent>().position.x),2) < 70))
+                    std::pow((transform->position.x - p->getComponent<TransformComponent>().position.x),2) < 55))
                     direction = {0,0};
                 direction.Normalize();
             }

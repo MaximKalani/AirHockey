@@ -107,7 +107,7 @@ public:
            }
         }
         //apply direction
-        
+        transform->speed = speed;
         transform->velocity.x = direction.x;
         transform->velocity.y = direction.y;
         

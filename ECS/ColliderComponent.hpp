@@ -8,6 +8,7 @@
 
 #include "../TextureManager.hpp"
 
+//component to detect collision between entities
 
 class ColliderComponent : public Component
 {
@@ -46,8 +47,7 @@ public:
     
     void update() override
     {
-        //if (tag == "player" || tag == "enemy")
-        
+        //move collider with transform component
         collider.x = static_cast<int>(transform->position.x);
         collider.y = static_cast<int>(transform->position.y);
         collider.w = transform->width * transform->scale;

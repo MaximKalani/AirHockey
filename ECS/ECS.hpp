@@ -130,21 +130,25 @@ public:
 class Manager
 {
 private:
+    //vector of all entities
     std::vector<std::unique_ptr<Entity>> entities;
     std::array<std::vector<Entity*>, maxGroups> groupedEntities;
 public:
     void update()
     {
+        //update every entity
         for (auto& e : entities) e->update();
     }
 
     void draw()
     {
+        //draw every entity
         for (auto& e : entities) e->draw();
     }
 
     void refresh()
     {
+        //remove inactive entities
         for(auto i(0u); i< maxGroups; i++)
         {
             auto& v(groupedEntities[i]);

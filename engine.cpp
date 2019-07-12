@@ -84,7 +84,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
     map.addComponent<SpriteComponent>("assets/board.png");
     map.addGroup(groupMap);
     
-    //mid barrier
+    //walls
     midCollider.addComponent<TransformComponent>(0, 472, 5, 640, 1);
     midCollider.addComponent<ColliderComponent>("mid");
     midCollider.addGroup(groupColliders);
@@ -105,6 +105,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
     downWall.addComponent<ColliderComponent>("Hterrain");
     downWall.addGroup(groupColliders);
 
+    //hitboxes
     upHitbox.addComponent<TransformComponent>(170, 20, 3, 300, 1);
     upHitbox.addComponent<ColliderComponent>("upHitbox");
     upHitbox.addGroup(groupColliders);
@@ -130,7 +131,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
     puck.addComponent<TransformComponent>(300, 459, 42, 42, 1);
     puck.addComponent<SpriteComponent>("assets/p_sheet.png", true);
     puck.addComponent<ColliderComponent>("puck");
-    puck.addComponent<ProjectileComponent>(10, 0, 0);
+    puck.addComponent<ProjectileComponent>(15, 0, 0);
     puck.addGroup(groupColliders);
     puck.addGroup(groupEnemies);
 

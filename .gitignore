@@ -1,0 +1,15 @@
+.directory
+.clang/
+.codelite/
+Debug/
+*.workspace
+*.project
+*.mk
+Makefile
+*.txt
+!assets/tilemap.txt
+!assets/tilemap2.txt
+*.wav
+.vscode/
+*.batch_build
+*.sh

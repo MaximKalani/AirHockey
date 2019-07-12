@@ -5,8 +5,8 @@
 ## Debug
 ProjectName            :=AirHockey
 ConfigurationName      :=Debug
-WorkspacePath          :=/home/maxim/Documents/Development/c++/AirHockey
-ProjectPath            :=/home/maxim/Documents/Development/c++/AirHockey
+WorkspacePath          :=.
+ProjectPath            :=.
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=

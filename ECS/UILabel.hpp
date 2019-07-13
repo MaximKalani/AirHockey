@@ -12,7 +12,7 @@ class UILabel : public Component
 {
 public:
     UILabel(int xpos, int ypos, int size, std::string text, std::string fontpath) :
-        labelText(text), labelFont(fontpath), textSize(size)
+        labelText(text), oldLabelText(text), labelFont(fontpath), textSize(size)
     {
         position.x = xpos;
         position.y = ypos;
@@ -40,7 +40,12 @@ public:
         char buff[100];
         snprintf(buff, sizeof(buff), "Player %.0f - %.0f Bot", Game::score.x, Game::score.y);
         labelText = buff;
-        setLabelText();
+        if(labelText != oldLabelText)
+        {
+            setLabelText();
+            oldLabelText = labelText;
+        }
+        
     }
 
     void draw() override
@@ -50,7 +55,7 @@ public:
 
 private:
     SDL_Rect position;
-    std::string labelText;
+    std::string labelText, oldLabelText;
     std::string labelFont;
     SDL_Color textColor = {0,0,0};
     SDL_Texture* labelTexture;

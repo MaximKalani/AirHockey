@@ -49,15 +49,20 @@ public:
             if(p->getComponent<TransformComponent>().position.y < 450 && timer > 20)
             {
                 //move towards puck
-                direction.x = -(transform->position.x - p->getComponent<TransformComponent>().position.x);
+                direction.x = -(transform->position.x - p->getComponent<TransformComponent>().position.x) * 3;
                 direction.y = -(transform->position.y - p->getComponent<TransformComponent>().position.y);
-                //if distance to puck is less then 100 pixels - dont move
+                //if distance to puck is less then 45 pixels - dont move
                 if(sqrt(std::pow((transform->position.y-p->getComponent<TransformComponent>().position.y), 2) +
-                    std::pow((transform->position.x - p->getComponent<TransformComponent>().position.x),2) < 55))
+                    std::pow((transform->position.x - p->getComponent<TransformComponent>().position.x),2) < 45))
                     direction = {0,0};
                 direction.Normalize();
             }
-             
+            if(p->getComponent<TransformComponent>().position.y > 450)
+            {
+                direction.x = -(transform->position.x - p->getComponent<TransformComponent>().position.x);
+                direction.y = (transform->position.y - p->getComponent<TransformComponent>().position.y) * 3;
+                direction.Normalize();
+            }
             //if collides with puck and last hit was more then 20 ticks ago
             if(SDL_IntersectRect(&p->getComponent<ColliderComponent>().destR, &collider->destR, &result) == SDL_TRUE && timer > 20)
             {

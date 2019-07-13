@@ -16,6 +16,7 @@ class AIComponent : public Component
 public:
     TransformComponent* transform = nullptr;
     ColliderComponent* collider = nullptr;
+    
     SDL_Rect result;
     Vector2D direction;
     uint16_t timer = 0;
@@ -31,6 +32,7 @@ public:
             transform = &entity->getComponent<TransformComponent>();
         if(entity->hasComponent<ColliderComponent>())
             collider = &entity->getComponent<ColliderComponent>();
+
         direction = {0,0};
     }
     
@@ -71,6 +73,8 @@ public:
                 direction.y = -direction.y;
                 timer = 0;
             }
+            
+            
         }
 
         //collide with walls

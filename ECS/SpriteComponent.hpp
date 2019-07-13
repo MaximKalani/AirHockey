@@ -17,6 +17,7 @@ private:
     SDL_Texture *texture;
     SDL_Rect srcRect, destRect;
     
+    
     bool animated = false;
     int frames = 0;
     int speed = 100;
@@ -50,13 +51,17 @@ public:
     {
         animated = isAnimated;
         
+        
         Animation glow = Animation(0, 12, 50);
         Animation idle = Animation(1, 1, 200);
-        
+    
         animations.emplace("glow", glow);
         animations.emplace("idle", idle);
-        
+    
         Play("glow");
+        
+        
+        
         setTex(path);
     }
     

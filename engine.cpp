@@ -172,6 +172,8 @@ void Game::update()
                 player.getComponent<TransformComponent>().position = player.getComponent<TransformComponent>().lastPosition;
             }
         }
+     
+        
     }
     
     

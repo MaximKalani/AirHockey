@@ -57,7 +57,7 @@ public:
                     direction = {0,0};
                 direction.Normalize();
             }
-            
+             
             //if collides with puck and last hit was more then 20 ticks ago
             if(SDL_IntersectRect(&p->getComponent<ColliderComponent>().destR, &collider->destR, &result) == SDL_TRUE && timer > 20)
             {
